@@ -10,4 +10,5 @@ class examples::fundamentals {
     source => 'puppet:///modules/examples/fundamentals/example.pp',
   }
 
+  notify { "This branch deploys to kjose07 environment" : }
 }
