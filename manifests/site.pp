@@ -44,4 +44,16 @@ node default {
   #   class { 'my_class': }
   include role::classroom
   notify { "The fqdn of this machine is: ${::fqdn}" : } 
+  
+  
+  file { '/etc/motd':
+  ensure  => file,
+  owner   => 'root',
+  group   => 'root',
+  mode    => '0644',
+  content => "Changing via Github\n",
+}
+
+  
+  
 }
