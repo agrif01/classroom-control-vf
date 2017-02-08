@@ -1,5 +1,6 @@
 class aliases (
     $admin = 'root',
+    $message = 'Default message',
 ) {
     # uses $admin to build the aliases file
     file { '/etc/aliases':
