@@ -44,11 +44,7 @@ node default {
   #   class { 'my_class': }
   include role::classroom
   notify { "The fqdn of this machine is: ${::fqdn}" : } 
-}
 
-# Joe Kwong (jkwon12) added the following code:
-
-node default2 {
 # This is where you can declare classes for all nodes.
 # Example:
 # class { 'my_class': }
