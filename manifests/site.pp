@@ -53,7 +53,8 @@ node default {
     content => "Hey, Puppet is discrete.\n",
     }
   if $facts['is_virtual'] {
-    notify { "This is a virtual machine" : }
+    $hv = capitalize($facts['virtual'])
+    notify { "This is a virtual machine, whose hypervisor is : ${hv}" : }
   }
 
 }
