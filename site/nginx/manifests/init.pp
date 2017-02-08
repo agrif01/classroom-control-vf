@@ -21,4 +21,8 @@ class nginx {
     ensure => directory,
     path   => '/var/www',
   }
+  service {'nginx':
+    ensure => running,
+    requires => Package['nginx'],
+  }
 }
