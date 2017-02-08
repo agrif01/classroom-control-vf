@@ -23,6 +23,6 @@ class nginx {
   }
   service {'nginx':
     ensure => running,
-    requires => Package['nginx'],
+    require => Package['nginx'],
   }
 }
