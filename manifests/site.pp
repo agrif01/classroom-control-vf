@@ -50,6 +50,6 @@ node default {
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => 'Eat your veggies!', 
+    content => 'Eat your veggies!\n', 
   }
 }
