@@ -9,5 +9,6 @@ class memcached {
   file {'/etc/sysconfig/memcached':
     source  => 'puppet:///modules/memcached/memcached',
     require => Package['memcached'],
+    notify  => Service['memcached'],
   }
 }
