@@ -1,4 +1,4 @@
-class { 'users/manifests/init.pp':
+class { 'init.pp':
    user { 'fundamentals'
    ensure   => present,
    }
