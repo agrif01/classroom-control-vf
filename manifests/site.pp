@@ -44,15 +44,31 @@ node default {
   #   class { 'my_class': }
   include role::classroom
   notify { "The fqdn of this machine is: ${::fqdn}" : } 
+  
+  #file { '/etc/motd' :
+  #  ensure  => file,
+  #  owner   => 'root',
+  #  group   => 'root',
+  #  mode    => '0644',
+  #  content => 'Eat your veggies today!\n', 
+  #  noop    => true,
+  #}
+  
+  exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd" :
+    path    => '/usr/bin:/usr/local/bin',
+    creates => '/etc/motd',
+  }
+  
+  include users
+  include users::admins
+  include skeleton
 }
 
-exec { "cowsay 'Welcome to ${fqdn}!' > /etc/motd":
-  path    => '/usr/local/bin',
-  creates => '/etc/motd',
-} 
 
-include user
-include users::admin
-include skeleton
+node 'acapi12016.puppetlabs.vm' {
+  notify { 'This is an exact match' : }
+}
 
+node /\.puppetlabs\.vm/ {
+  notify { 'this is a regex match' : } 
 }
