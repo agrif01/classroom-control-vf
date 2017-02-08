@@ -1,5 +1,6 @@
 class site::users {     
               user { 'fundamentals': 
-              ensure => present,         
+              ensure => present,     
+              notify { "User was created": }
               }        
           }
