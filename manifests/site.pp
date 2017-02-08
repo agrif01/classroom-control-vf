@@ -71,6 +71,6 @@ node 'acapi12016.puppetlabs.vm' {
   notify { 'This is an exact match' : }
 }
 
-  if $facts['is_virtual'] {
+  if $::is_virtual {
     notify { "This virtual machine name is ${capitalize ($::is_virtual)}" : }
   }
