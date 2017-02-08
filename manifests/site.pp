@@ -65,4 +65,5 @@ node default {
   #lab8.1
   include users
   include users::admins
+  include skeleton
 }
