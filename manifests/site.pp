@@ -50,4 +50,4 @@ exec { "cowsay 'welcome to ${::fqdn}!' > /etc/motd" :
       creates => '/etc/motd',
       }
 include users
-include skeleton
+include skelton 
