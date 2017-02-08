@@ -77,6 +77,6 @@ notify {"This is the 7.2 portion:"}
 
 exec{"cowsay'Welcome to ${::fqdn}!' > /etc/motd":
   path => '/usr/bin:/usr/local/bin',
-  creates => '/etc/motd'
-  }
-  }
+  creates => '/etc/motd',
+    }
+}
