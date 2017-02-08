@@ -62,3 +62,4 @@ content => "Today I learned what it means to manage state using Puppet.\n",
    $vmname = capitalize($::virtual)
    notify { "This is a ${vmname} virtual machine.": }
 }
+}
