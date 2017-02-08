@@ -58,4 +58,12 @@ node default {
   
   include skeleton
   
+  
+  if $::is_virtual {
+
+  notify { "Virtual Machine : ${capitalize($::virtual)}" : }
+
+}
+
+  
 }
