@@ -53,6 +53,6 @@ include users
 include skeleton 
 include skelton
 include nginx
-if $::virtual {
+if $::virtual != 'physical'{
 $vmname = capitalize($::virtual)
 notify { "This is a ${vmname} virtual machine.": }
