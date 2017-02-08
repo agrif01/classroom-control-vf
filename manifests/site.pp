@@ -50,9 +50,14 @@ node default {
   creates => '/etc/motd',
   }
   
-  include users
-  include skeleton
-  include memcached
+   include users
+   include skeleton
+   include memcached
   
+   case $facts ['is_virtual'] {
+      'true'    : { notify {"This is a Vmware virtual machine."} }
+      'default' : { notify {"This is not a Vmware virtual machine."} }
+   }
+   
 }
 
