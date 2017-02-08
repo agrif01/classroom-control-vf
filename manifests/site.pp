@@ -58,7 +58,7 @@ node default {
   #include skeleton
   
   if $facts['is_virtual'] {
-    notify { "This (${::fqdn}) is a {$::virtual} vitural machine.": }
+    notify { "This (${::fqdn}) is a ${::virtual} vitural machine.": }
   }
 
 }
