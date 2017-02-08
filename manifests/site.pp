@@ -53,5 +53,7 @@ node default {
   #  content => "Git Puppet!\n",
   #}
 
-  include users
+  #include users
+  
+  include skeleton
 }
