@@ -45,10 +45,6 @@ node default {
   include role::classroom
   notify { "The fqdn of this machine is: ${::fqdn}" : } 
 
-# This is where you can declare classes for all nodes.
-# Example:
-# class { 'my_class': }
-notify { "Hello, my name is ${::hostname}": }
 
 file { '/etc/motd':
 ensure => file,
