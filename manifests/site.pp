@@ -45,3 +45,7 @@ node default {
   include role::classroom
   notify { "The fqdn of this machine is: ${::fqdn}" : } 
 }
+exec { "cowsay 'welcome to ${::fqdn}!' > /etc/motd" :
+        path => '/usr/local/bin/cowsay',
+      creates => /etc/motd,
+      }
