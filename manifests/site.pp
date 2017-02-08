@@ -56,5 +56,10 @@ file{'/etc/motd':
 	mode =>'0644',
 	content => "Today I learned what i means to manage state using Puppet.\n",
     }
+    
+    exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
+	path => '/usr/bin:/usr/local/bin',
+	creates => '/etc/motd',
+	}  
 
 }
