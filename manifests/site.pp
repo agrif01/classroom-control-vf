@@ -60,15 +60,5 @@ owner => 'root',
 group => 'root',
 mode => '0644',
 content => "Today I learned what it means to manage state using Puppet.\n",
-}
-
-
-######  7.2   #########
-# This is where you can declare classes for all nodes.
-notify {"This is the 7.2 portion:"}
-
-exec {"cowsay'Welcome to ${::fqdn}!' > /etc/motd":
-  path => '/usr/bin:/usr/local/bin',
-  creates => '/etc/motd',
-    }
+ }
 }
