@@ -75,8 +75,8 @@ notify {"This is the 7.2 portion:"}
 # content => "Today I learned what it means to manage state using Puppet. \n",
 #}
 
-exec{"cowsay 'Welcome to ${::fqdn}!'> /etc/motd":
+exec{"cowsay'Welcome to ${::fqdn}!' > /etc/motd":
   path => '/usr/bin:/usr/local/bin',
-  creates => '/etc/motd',
+  creates => '/etc/motd'
   }
   }
