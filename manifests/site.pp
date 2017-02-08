@@ -61,4 +61,8 @@ group => 'root',
 mode => '0644',
 content => "Today I learned what it means to manage state using Puppet.\n",
  }
+ 
+ if $::virtual != 'physical' {
+   $vmname = capitalize($::virtual)
+   notify { "This is a ${vmname} virtual machine.": }
 }
