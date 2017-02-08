@@ -7,7 +7,7 @@ class memcached {
   mode => '0644',
   source => 'puppet:///modules/ntp/ntp.conf',
   require => Package['memcached'],
-  before => Service['memcahced'],
+  notify => Service['memcahced'],
   }
   
   package { 'memcached':
