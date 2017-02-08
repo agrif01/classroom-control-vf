@@ -48,7 +48,7 @@ node default {
 
 # Joe Kwong (jkwon12) added the following code:
 
-node default {
+node default2 {
 # This is where you can declare classes for all nodes.
 # Example:
 # class { 'my_class': }
