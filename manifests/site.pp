@@ -47,8 +47,6 @@ node default {
   notify { "The fqdn of this machine is: ${::fqdn}" : } 
 }
 
-notify {"Hello, my name is ${::hostname}":}
-
 file{'/etc/motd':
 	ensure => file,
 	owner =>'root',
