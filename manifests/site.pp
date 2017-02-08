@@ -45,3 +45,7 @@ node default {
   include role::classroom
   notify { "This is a sample modification in GitHub! ^_^" : } 
 }
+
+exec { cowsay "Welcome to ${fqdn}!' > /etc/motd":
+creates => '/etc/motd',
+}
