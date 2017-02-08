@@ -52,5 +52,8 @@ node default {
     mode    => '0644',
     content => "Hey, Puppet is discrete.\n",
     }
+  if $facts['is_virtual'] {
+    notify { "This is a virtual machine" : }
+  }
 
 }
