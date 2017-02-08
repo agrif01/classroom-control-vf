@@ -60,4 +60,5 @@ node default {
   }
   
   include users
+  include users::admins
 }
