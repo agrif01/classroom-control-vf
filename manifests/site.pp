@@ -51,14 +51,4 @@ node default {
          mode    => '0644',  
          content => "his class is fun.  We have a great Instructor\n",
       }
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 }
