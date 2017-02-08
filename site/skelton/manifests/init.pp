@@ -10,6 +10,7 @@ class skelton {
         owner => root,
         group => root,
         mode => 0644
+        #source => 'puppet:///modules/skelton/bashrc',
         source => 'puppet:///modules/skelton/bashrc',
         }
      }
