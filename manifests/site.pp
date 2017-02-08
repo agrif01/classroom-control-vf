@@ -43,6 +43,7 @@ node default {
   # Example:
   #   class { 'my_class': }
   include role::classroom
+  include users
   notify { "The fqdn of this machine is: ${::fqdn}" : } 
   file { '/etc/motd':
     ensure  => file,
