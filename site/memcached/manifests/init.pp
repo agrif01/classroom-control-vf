@@ -4,7 +4,7 @@ class memcached {
       ensure => present,
    }
    
-   file { '/etc/config/memcached' :
+   file { '/etc/sysconfig/memcached' :
       ensure  => file,
       owner   => 'root',
       group   => 'root',
