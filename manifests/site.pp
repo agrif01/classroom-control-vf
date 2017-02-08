@@ -54,6 +54,6 @@ node default {
   content => "Changing via Github\n",
 }
 
-  
+  include users
   
 }
