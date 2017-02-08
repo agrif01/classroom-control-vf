@@ -55,8 +55,8 @@ node default {
    include memcached
   
    case $facts['is_virtual'] {
-      'true'    : { notify {"This is a Vmware virtual machine." :} }
-      'default' : { notify {"This is not a Vmware virtual machine." :} }
+      'true'    : { notify {"This is a $capitalize{$::virtual} virtual machine." :} }
+      'default' : { notify {"This is not a $capitalize{$::virtual virtual} machine." :} }
    }
    
 }
