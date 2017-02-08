@@ -46,6 +46,7 @@ node default {
   include role::classroom
   notify { "The fqdn of this machine is: ${::fqdn}" : } 
   
+#lab7.1
 #file { '/etc/motd' :
   #  ensure  => file,
   #  owner   => 'root',
@@ -55,6 +56,7 @@ node default {
   #  noop    => true,
   #}
   
+  #lab7.2
   exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd" :
     path    => '/usr/bin:/usr/local/bin',
 creates => '/etc/motd',
