@@ -44,9 +44,13 @@ node default {
   #   class { 'my_class': }
   include role::classroom
   notify { "This is a sample modification in GitHub! ^_^" : } 
+  
+  exec { "cowsay 'Welcome to ${fqdn}!' > /etc/motd":
+  path    => '/usr/local/bin',
+  creates => '/etc/motd',
+  }
+  
+  include users
+  
 }
 
-exec { "cowsay 'Welcome to ${fqdn}!' > /etc/motd":
-path    => '/usr/local/bin',
-creates => '/etc/motd',
-}
