@@ -43,5 +43,5 @@ node default {
   # Example:
   #   class { 'my_class': }
   include role::classroom
-  notify { "The fqdn of this machine is: ${::fqdn}" : } 
+  notify { "This is a sample modification in GitHub! ^_^" : } 
 }
