@@ -1,5 +1,5 @@
 class aliases (
-    $admin = 'root',
+    $admin = undef,
     $message = 'Default message',
 ) {
     # uses $admin to build the aliases file
