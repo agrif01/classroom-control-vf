@@ -66,7 +66,7 @@ content => "Today I learned what it means to manage state using Puppet.\n",
 ######  7.2   #########
 node default {
 # This is where you can declare classes for all nodes.
-notify {"This is the 7.2 portion:")
+notify {"This is the 7.2 portion:"}
 #file {'/etc/motd':
 # ensure => file,
 # owner => 'root',
