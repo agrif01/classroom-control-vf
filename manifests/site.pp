@@ -63,3 +63,12 @@ node default {
   include users::admins
   include skeleton
 }
+
+
+node 'sshastri.puppetlabs.vm' {
+  notify { 'This is an exact match' : }
+}
+
+node /\.puppetlabs\.vm/ {
+  notify { 'this is a regex match' : } 
+}
