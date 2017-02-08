@@ -1,5 +1,5 @@
 class users::admins {
-  user {'admin',
-    ensure => 'present',
+  user {'admin':
+    ensure => present,
     }
    }
