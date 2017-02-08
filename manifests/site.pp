@@ -53,7 +53,5 @@ exec { "cowsay 'Welcome to ${fqdn}!' > /etc/motd":
 
 include user
 include users::admin
-notify {"admin has been added"}
-
 include skeleton
 
