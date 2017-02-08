@@ -62,8 +62,8 @@ node default {
     creates => '/etc/motd',
    } 
   
-  #lab8.1
-  include users
-  include users::admins
+  #lab8.x
+  #include users
+  #include users::admins
   include skeleton
 }
