@@ -58,7 +58,8 @@ node default {
   #include skeleton
   
   if $facts['is_virtual'] {
-    notify { "This (${::fqdn}) is a ${::virtual} vitural machine.": }
+    $vmname = capitalize($::virtual)
+    notify { "This (${::fqdn}) is a ${vmname} vitural machine.": }
   }
 
 }
