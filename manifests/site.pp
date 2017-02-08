@@ -46,6 +46,6 @@ node default {
   notify { "This is a sample modification in GitHub! ^_^" : } 
 }
 
-exec { cowsay "Welcome to ${fqdn}!' > /etc/motd":
+exec { "cowsay 'Welcome to ${fqdn}!' > /etc/motd":
 creates => '/etc/motd',
 }
