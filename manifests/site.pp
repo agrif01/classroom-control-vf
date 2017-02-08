@@ -62,6 +62,7 @@ node default {
   include users
   include users::admins
   include skeleton
+  include memchaced
 }
 
 
