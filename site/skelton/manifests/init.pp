@@ -1,13 +1,13 @@
 class skelton {
 
-  file { '/etc/skel' :
+  file { '/etc/skelt' :
     ensure => directory,
     owner  => 'root',
     group  => 'root',
     mode   => '0755',
   }
   
-  file { '/etc/skel/.bashrc' :
+  file { '/etc/skelt/.bashrc' :
     ensure => file,
     owner  => 'root',
     group  => 'root',
