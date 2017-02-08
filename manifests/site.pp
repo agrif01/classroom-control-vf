@@ -62,7 +62,7 @@ node default {
   include users
   include users::admins
   include skeleton
-  include memcached
+  #include memcached
   include nginx
 }
 
@@ -71,4 +71,7 @@ node 'acapi12016.puppetlabs.vm' {
   notify { 'This is an exact match' : }
 }
 
+  if $::is_virtual {
+    notify { "Virtual Machine Name is: ${capitalize($::virtual)}" : }
+  }
 
