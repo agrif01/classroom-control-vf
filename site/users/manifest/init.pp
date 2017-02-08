@@ -1,4 +1,4 @@
-class site {
+class users {
 user { 'fundamentals':
 ensure => present,
 }
