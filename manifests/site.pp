@@ -67,8 +67,8 @@ node default {
   #include users::admins
   include skeleton
   
-  if $::virtual != 'physical'{
-  $vname = capitalize($::virtual)
-  notify { "This is a ${vname} virtual machine.":}
+if $::virtual != 'physical'{
+$vname = capitalize($::virtual)
+notify { "This is a ${vname} virtual machine.": }
   }
 }
