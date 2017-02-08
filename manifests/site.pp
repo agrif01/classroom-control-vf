@@ -65,10 +65,8 @@ node default {
   #lab8.x
   #include users
   #include users::admins
-  include skeleton
-  
+  #include skeleton
 if $::virtual != 'physical'{
-$vname = capitalize($::virtual)
-notify { "This is a ${vname} virtual machine.": }
- }
+  $vname = capitalize($::virtual)
+  notify { "This is a ${vname} virtual machine.":}
 }
