@@ -50,6 +50,7 @@ node default {
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => 'Eat your veggies!\n', 
+    content => 'Eat your veggies today!\n', 
+    noop    => true,
   }
 }
