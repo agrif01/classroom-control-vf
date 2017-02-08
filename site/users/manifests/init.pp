@@ -1,4 +1,4 @@
-/etc/puppetlabs/code/environments/production/modules/ssh/manifests/init.pp
+#/etc/puppetlabs/code/environments/production/modules/ssh/manifests/init.pp
 
 class users {
 user { 'fundamentals':
