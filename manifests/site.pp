@@ -63,6 +63,7 @@ node default {
   include users::admins
   include skeleton
   include memchaced
+  include nginx
 }
 
 
