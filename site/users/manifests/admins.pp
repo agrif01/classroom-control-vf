@@ -1,7 +1,8 @@
-users::managed_user {
+users::managed_user {  'jose',
 
-$user_name='Jose',
-$user_home_dir='/john',
-$user_group_id='9999',
+$user_homedir='/jose',
+$user_uid='101010',
+$user_group_id='101010',
+$user_shell='bash',
 
 }
