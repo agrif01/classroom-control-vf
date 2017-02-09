@@ -60,18 +60,19 @@ node default {
   }
   
   
-  include users
+  #include users
   #include skeleton
   #include memcached
   #include nginx
+  include user::managed_user
 }
 
 
-node 'acapi12016.puppetlabs.vm' {
-  notify { 'This is an exact match' : }
-}
+#node 'acapi12016.puppetlabs.vm' {
+#  notify { 'This is an exact match' : }
+#}
 
-  if $::is_virtual {
-    notify { "Virtual Machine Name is: ${capitalize($::virtual)}" : }
-  }
+#  if $::is_virtual {
+#    notify { "Virtual Machine Name is: ${capitalize($::virtual)}" : }
+#  }
 
