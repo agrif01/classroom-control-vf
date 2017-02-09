@@ -1,3 +1,5 @@
+class nginx::Params (
+
 case $facts['os']['family'] {
 	'debian': {
 		$pkgname => 'nginx' 
