@@ -1,8 +1,7 @@
-users::managed_user {  'jose',
+class users::admins {  
 
-$user_homedir='/jose',
-$user_uid='101010',
-$user_group_id='101010',
-$user_shell='bash',
+  users::managed_user { 'jose' : }
+  users::managed_user { 'alice' : }
+  users::managed_user { 'chen' : }
 
 }
