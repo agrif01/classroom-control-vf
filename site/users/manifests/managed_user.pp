@@ -1,5 +1,5 @@
 define users::managed_user (
-$user = $input1, $group = $input2
+$user = $title1, $group = $title2
 )
 {
 
