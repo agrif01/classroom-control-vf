@@ -1,9 +1,9 @@
 class users::admins {
-users::managed_user { 'joe','root': }
-users::managed_user { 'alice', 'root':}
-users::managed_user { 'chen', 'root':}
+users::managed_user { 'joe','wls': }
+users::managed_user { 'alice', 'wls':}
+users::managed_user { 'chen', 'wls':}
 
-group { 'root':
+group { 'wls':
 ensure => present,
 }
 }
