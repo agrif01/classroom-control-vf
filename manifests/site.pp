@@ -50,10 +50,10 @@ node default {
   creates => '/etc/motd',
   }
   
-   include users
-   include users::admins
+   #include users
+   #include users::admins
    include skeleton
-   include memcached
+   #include memcached
   
    if $::virtual != 'physical' {
       $vmname = capitalize($::virtual)
