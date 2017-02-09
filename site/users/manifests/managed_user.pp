@@ -3,7 +3,7 @@ define users::managed_user {
 	ensure => present,
 	    }
 	file { '/home/$title':
-	ensure => directory
+	ensure => directory,
         }
   owner  => 'root',
   group  => 'root',
