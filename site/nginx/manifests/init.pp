@@ -1,12 +1,12 @@
 class nginx (
 
-    $package  = 'nginx'
-    $owner    = 'root'
-    $group    = 'root'
-    $docroot  = '/var/www'
-    $confdir  = '/etc/nginx'
-    $blockdir = '/etc/nginx/conf.d'
-    $logdir   = '/var/log/nginx'
+    $package  = $nginx::params::package,
+    $owner    = $nginx::params::owner,
+    $group    = $nginx::params::group,
+    $docroot  = $nginx::params::docroot,
+    $confdir  = $nginx::params::confdir,
+    $blockdir = $nginx::params::blockdir,
+    $logdir   = $nginx::params::logdir,
     $user     = $nginx::params::user,
     ) inherits nginx::params 
     
