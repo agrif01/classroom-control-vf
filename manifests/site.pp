@@ -66,8 +66,10 @@ node default {
   #include users
   #include users::admins
   #include skeleton
-  include nginx
+  #include nginx
   #include memcached
+  
+  include users
   
  if $::virtual != 'physical' {
    $vmname = capitalize($::virtual)
