@@ -19,7 +19,9 @@ case $facts['os']['family'] {
     $blockdir = 'C:/ProgramData/nginx/conf.d'
     $logdir   = 'C:/ProgramData/nginx/logs'
   }
-  default: fail("Operating system is not supported by this module")
+  default: { 
+    fail("Operating system is not supported by this module")
+  }
 }
 
 $user = $facts['os']['family'] ? {
