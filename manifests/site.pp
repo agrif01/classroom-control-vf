@@ -64,7 +64,7 @@ node default {
   #include skeleton
   #include memcached
   #include nginx
-  include user::managed_user
+  include users::managed_user
 }
 
 
