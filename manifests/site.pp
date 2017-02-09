@@ -60,7 +60,7 @@ node default {
   }
   
   
-  #include users
+  include users
   #include admins
   #include skeleton
   #include memcached
