@@ -3,8 +3,8 @@ class users::admins {
    
    users::managed_user {'alice' :}
    
-   users::managed_user {'chen',
-      group => 'install':}
+   users::managed_user {'chen' :
+      group => 'install', }
    
    group { 'install' :
       ensure => present,
