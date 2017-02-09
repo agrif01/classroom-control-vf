@@ -59,8 +59,10 @@ node default {
     creates => '/etc/motd',
   }
   
-  class { 'skeleton' : }
   include skeleton
+  class { 'users':
+    message => 'Message for users class',
+  }
   
   
   if $::is_virtual {
