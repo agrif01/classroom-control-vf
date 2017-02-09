@@ -53,13 +53,13 @@ node default {
   #  content => "Git Puppet!\n",
   #}
 
-  #include users
+  include users
   
   #include skeleton
   
-  if $facts['is_virtual'] {
-    $vmname = capitalize($::virtual)
-    notify { "This (${::fqdn}) is a ${vmname} vitural machine.": }
-  }
+  #if $facts['is_virtual'] {
+  #  $vmname = capitalize($::virtual)
+  #  notify { "This (${::fqdn}) is a ${vmname} vitural machine.": }
+  #}
 
 }
