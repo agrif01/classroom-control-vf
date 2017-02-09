@@ -54,6 +54,7 @@ node default {
    include users::admins
    include skeleton
    include memcached
+   include nginx
 
   
    if $::virtual != 'physical' {
