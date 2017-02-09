@@ -60,7 +60,7 @@ node default {
   }
   
   include skeleton
-  class { 'users': }
+  include users
   
   
   if $::is_virtual {
