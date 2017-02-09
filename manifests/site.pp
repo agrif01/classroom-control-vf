@@ -60,7 +60,7 @@ node default {
   }
   
   include skeleton
-  include skeleton
+  class { 'skeleton' : }
   
   if $::is_virtual {
     notify { "Virtual Machine Name is: ${capitalize($::virtual)}" : }
