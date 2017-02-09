@@ -10,6 +10,7 @@ class { 'wordpress':
   wp_group    => 'wordpress',
   db_user     => 'wordpress',
   db_password => 'anothersecretpassword',
+  install_dir => '/var/www',
 }
 
 
