@@ -2,8 +2,9 @@ define user::managed_user (
   $user = ${title},
   $group= ${title},
   )
+  {
   
-  user{ ${title}:
+  user{ "${title}":
      ensure => present,
   }
   
@@ -12,4 +13,4 @@ define user::managed_user (
     owner => ${title},
     group => ${title},
     }
- 
+ }
