@@ -71,7 +71,7 @@ node default {
   include users
   include skeleton
   include memcached
-  include nginx
+  #include nginx
   include aliases
-  
+  include users::admins
 }
