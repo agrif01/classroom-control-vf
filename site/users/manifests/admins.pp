@@ -1,11 +1,8 @@
 class users::admins {
-users::managed_user { 'joe','wls' : }
-users::managed_user { 'alice', 'wls' : }
-users::managed_user { 'chen', 'wls' : }
+users::managed_user { 'joe' , 'staff'  :}
+users::managed_user { 'alice', 'staff' : }
+users::managed_user { 'chen', 'staff' : }
 
-group { 'wls':
-ensure => present,
-}
 }
 
 
