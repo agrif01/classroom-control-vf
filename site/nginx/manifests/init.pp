@@ -1,6 +1,6 @@
 class nginx {
 
-case $facts['os']['family] {
+case $facts['os']['family'] {
   'RedHat', 'Debian' : {
     $package  = 'nginx'
     $owner    = 'root'
