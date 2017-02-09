@@ -1,36 +1,50 @@
 class nginx {
-  package {'nginx':
-    ensure => present,
-  }
-  File {
-    owner => 'root',
-    group => 'root',
-    mode  => '0644',
-  }
+
+File {
+  owner => $owner,
+  group => $group,
+  mode =>  '0664',
+}
+
+package { $package :
+  ensure => present,
+}
+
+file { $docroot :
+  ensure => directory,
+  mode   => '0755',
+}
+
+file { "${docroot}/index.html" :
+  ensure => file,
+  #source => 'puppet:///modules/nginx/index.html',
+  content => epp('nginx/index.html.epp'),
+}
   
-  $filesrc = 'puppet:///modules/nginx'
-  
-  file {'nginx.conf':
-    ensure => file,
-    path   => '/etc/nginx/nginx.conf',
-    source => "${filesrc}/nginx.conf",
-  }
-  file {'default.conf':
-    ensure => file,
-    path   => '/etc/nginx/conf.d/default.conf',
-    source => "${filesrc}/default.conf",
-  }
-  file {'index.html':
-    ensure => file,
-    path   => '/var/www/index.html',
-    source => "${filesrc}/index.html",
-  }
-  file {'/var/www':
-    ensure => directory,
-    path   => '/var/www',
-  }
-  service {'nginx':
-    ensure => running,
-    require => Package['nginx'],
-  }
+
+file { "${confdir}/nginx.conf" :
+  ensure  => file,
+  content => epp('nginx/nginx.conf.epp', { user     => $user,
+                                           confdir  => $confdir,
+                                           blockdir => $blockdir,
+                                           logdir   => $logdir,
+                                         }),
+  require =>  Package[$package],
+  notify  => Service['nginx'],
+}
+
+
+file { "${blockdir}/default.conf" :
+  ensure  => file,
+  content => epp('nginx/default.conf.epp', { docroot => $docroot }),
+  require => Package[$package],
+  notify  => Service['nginx'],
+}
+
+service { 'nginx' :
+  ensure => running,
+  enable => true,
+}
+
+
 }
