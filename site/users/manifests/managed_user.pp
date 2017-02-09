@@ -1,6 +1,6 @@
 define users::managed_user (
   $user = $title,
-  $homedir = /home/$title,
+  $homedir = "/home/$title",
   $groups = 'users',
   $ssh_dir = "/home/${title}/.ssh",
   $shell = "/bin/bash",
