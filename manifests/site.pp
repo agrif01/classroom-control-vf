@@ -61,11 +61,11 @@ node default {
   
   
   include users
-  include admins
+  #include admins
   #include skeleton
   #include memcached
   #include nginx
-  #include users::managed_user
+  include users::admin
 }
 
 
