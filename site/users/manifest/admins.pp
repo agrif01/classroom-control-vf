@@ -1,9 +1,9 @@
-class users::admins {
+#class users::admins {
 
-  user {'admin':
-    ensure => present,
-    }
-   }
+  #user {'admin':
+  #  ensure => present,
+  #  }
+  # }
 
 
 class users::admins {
