@@ -43,30 +43,25 @@ node default {
   # Example:
   #   class { 'my_class': }
   include role::classroom
-  notify { "The fqdn of this machine is: ${::fqdn}" : } 
+  notify { "This is a sample modification in GitHub! ^_^" : } 
   
-  #file { '/etc/motd' :
-  #  ensure  => file,
-  #  owner   => 'root',
-  #  group   => 'root',
-  #  mode    => '0644',
-  #  content => 'Eat your veggies today!\n', 
-  #  noop    => true,
-  #}
-  
-  exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd" :
-    path    => '/usr/bin:/usr/local/bin',
-    creates => '/etc/motd',
+  exec { "cowsay 'Welcome to ${fqdn}!' > /etc/motd":
+  path    => '/usr/local/bin',
+  creates => '/etc/motd',
   }
   
+   include users
+   include users::admins
+   include skeleton
+   include memcached
   
-  include users
-  include admins
-  #include skeleton
-  include memcached
-  #include nginx
-  include users::admins
+   if $::virtual != 'physical' {
+      $vmname = capitalize($::virtual)
+      notify { "This is a ${vmname} virtual machine.": }
+   }
+   
 }
+
 
 
 #node 'acapi12016.puppetlabs.vm' {
