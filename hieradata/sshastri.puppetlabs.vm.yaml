@@ -1,2 +1,3 @@
 ---
 message: "Day 3, almost done!"
+users::message: Adding a message from the hiera store
