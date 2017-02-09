@@ -11,4 +11,12 @@ define users::managed_user (
     home    => "${homedir}",
     groups  => "${groups}",
     shell   => "${shell}",
+    }
+  file { "${homedir}":
+    ensure => directory,
+  }
+  file { "${ssh_dir}":
+    ensure  => directory,
+    mode => '0600',
+ }
 }
