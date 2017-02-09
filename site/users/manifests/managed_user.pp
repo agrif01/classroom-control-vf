@@ -1,10 +1,10 @@
 define users::managed_user (
-$user = $input1, $group = $input2
+$input1 = $var1, $input2 = $var2
 )
 {
-file { "/home/${input1}":
+file { "/home/${var11}":
 ensure => directory,
-owner => $input1,
-group => $input2,
+owner => $var1,
+group => $var2,
 }
 }
