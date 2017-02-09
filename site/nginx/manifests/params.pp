@@ -1,4 +1,5 @@
 class nginx::params {
+
 case $facts['os']['family'] {
   'RedHat', 'Debian' : {
     $package  = 'nginx'
@@ -21,5 +22,13 @@ case $facts['os']['family'] {
   default: { 
     fail("Operating system is not supported by this module")
   }
+}
+
+$user = $facts['os']['family'] ? {
+  'RedHat'  => 'nginx',
+  'Debian'  => 'www-data',
+  'windows' => 'nobody',
+   default   => 'nginx',
+}
 
 }
