@@ -13,7 +13,7 @@ case $facts['os']['family'] {
 		$usrsrvrunas =>  'www-data' 
 	}
 	'windows': {
-		$kgname =>  'nginx-service'
+		$pkgname =>  'nginx-service'
 		$fowner =>  'Administrator'
 		$fgroup  => 'Administrators'
 		$docroot  =>  'C:/ProgramData/nginx/html'
