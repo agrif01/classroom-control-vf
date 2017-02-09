@@ -1,0 +1,86 @@
+DAY 2 MINI QUIZ RECAP!!!!
+
+define a class => 
+class <classname>  { }
+declare a class => include
+
+Classification 
+2. ways to classify
+1.  pe console
+2. code - node definition
+	1. explicit
+	2. regex
+	3. default
+
+Modules
+	/ manifests - .pp puppet code 
+		init.pp
+	/ files - static files
+	/ templates - dynamically generated files .epp
+	/ examples - smoke tests
+
+
+Puppet knows how to find classes how? 
+directory name - modulepath setting
+
+Resources
+	Meta Parameters - parameter that work with any resource type
+	ex: loop, notify subscribe, loglevel
+
+
+Common design pattern for manifests:
+	- package
+	- file
+	- service
+
+Introduced the resource type files 
+
+file { '/etc/hosts' : 
+  content => string, actual content
+  source =>  static file 
+}
+	2 ways to put content into files:
+		1. content
+		2. source
+	
+	puppet knows to find files where? files
+	puppet uri: source => 'puppet:///modules/<module_name>/filename
+
+
+Resource relationships
+	explicit ordering - 4 attributes 
+		1. require
+		2. before
+		//come with refresh events
+		3. notify
+		4. subscribe
+		
+	implicit ordering 
+		1. users and groups
+		2. files and directories
+		3. file ownership 
+
+Resource Defaults
+	How to declare a resource default?
+	Same name, uppercase  File {}
+
+Puppet language
+Variables, case statements, arrays 
+	variables start with a: $
+
+Scoping
+	1. global - top
+	2. local  within a class
+	3. node scope
+
+	Facts are ? global
+
+Templates:
+	templates go in the templates directory
+	
+	Syntax in puppet code with a file resource:
+		content => epp(<modulename>/filename)
+	Syntax in a template (tags):
+		.epp
+		<%=  $variablename %>
+	
