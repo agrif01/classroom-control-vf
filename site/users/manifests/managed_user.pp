@@ -8,8 +8,8 @@ define user::managed_user (
      ensure => present,
   }
   
-  file{"/home/${title}":
-    ensure => directory
+  file{ "/home/${title}":
+    ensure => directory,
     owner => $title,
     group => $title,
     }
