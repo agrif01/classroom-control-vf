@@ -44,7 +44,7 @@ node default {
   #   class { 'my_class': }
   include role::classroom
   notify { "The fqdn of this machine is: ${::fqdn}" : } 
-}
+
 exec { "cowsay 'welcome to ${::fqdn}!' > /etc/motd" :
         path => '/usr/local/bin/cowsay',
       creates => '/etc/motd',
@@ -54,6 +54,8 @@ include skeleton
 include skelton
 include nginx
 include users::admins
+
+}
 #if $::virtual != 'physical'{
 #$vmname = capitalize($::virtual)
 #notify { "This is a ${vmname} virtual machine.": }
