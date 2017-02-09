@@ -9,7 +9,7 @@ $group = $title,
   gid  => $group, 
   }
   
-  file { "/home/${user}" ,
+  file { "/home/${user}" :
    ensure => directory,
    owner => $user,
    group => $group,
