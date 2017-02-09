@@ -54,9 +54,9 @@ node default {
    include skeleton
    include memcached
   
-   case $facts['is_virtual'] {
-      'true'    : { notify {"This is a $capitalize{$::virtual} virtual machine." :} }
-      'default' : { notify {"This is not a $capitalize{$::virtual virtual} machine." :} }
+   if $::virtual != 'physical' {
+      $vmname = capitalize($::virtual)
+      notify { "This is a ${vmname} virtual machine.": }
    }
    
 }
