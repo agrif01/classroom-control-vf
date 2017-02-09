@@ -66,10 +66,11 @@ node default {
   #include users
   #include users::admins
   #include skeleton
+  include nginx
   
-  if $::virtual != 'physical' {
-$vmname = capitalize($::virtual)
-notify { "This is a ${vmname} virtual machine.": }
-}
+ #if $::virtual != 'physical' {
+ #  $vmname = capitalize($::virtual)
+ #   notify { "This is a ${vmname} virtual machine.": }
+#}
 
 }
