@@ -63,13 +63,12 @@ node default {
    } 
   
   #lab8.x
-  #include users
+  include users
   #include users::admins
   #include skeleton
   #include nginx
   #include memcached
   
-  include users
   
  if $::virtual != 'physical' {
    $vmname = capitalize($::virtual)
