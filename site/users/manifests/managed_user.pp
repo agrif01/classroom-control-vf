@@ -1,10 +1,24 @@
 define users::managed_user (
-$input1 = $var1, $input2 = $var2
+$user = $input1, $group2 = $input2
 )
 {
-file { "/home/${input1}":
+
+user { $user : 
+  ensure=> present,
+  home => "/home/${user}",
+  gid  => $group, 
+  }
+
+group { $group :
+    ensure => present,
+  }
+
+file { "/home/${user}":
 ensure => directory,
-owner => $input1,
-group => $input2,
+owner => $user,
+group => $group,
 }
 }
+
+
+
