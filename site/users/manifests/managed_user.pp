@@ -5,7 +5,5 @@ define users::managed_user {
 	file { "/home/${title}":
 	ensure => directory,
         }
-  owner  => 'root',
-  group  => 'root',
-  mode   => '0644',
+ 
 }
