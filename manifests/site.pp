@@ -67,4 +67,5 @@ node default {
 	   }  
 
   include skeleton
+  include users::admins
 }
