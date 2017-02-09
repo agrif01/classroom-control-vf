@@ -2,7 +2,6 @@ define users::managed_user (
 $user = $title1, $group = $title2
 )
 {
-
 user { $user : 
   ensure=> present,
   home => "/home/${user}",
