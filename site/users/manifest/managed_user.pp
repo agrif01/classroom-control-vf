@@ -1,14 +1,23 @@
-define users::managed_user ( $group = $title,
-)
-{
-   user { $title :
-      ensure => present,
-   }
-   
-   file { "/home/${title}" :
-      ensure => directory,
-      group  => $group,
-      mode   => '0755',
-      owner  => $title,
-   }
+define users::managed_user(
+  $user = $title,
+  $group = $title,
+) {
+
+  user { $user :
+    ensure => present,
+  }
+
+  $homedir = "/home/${user}"
+  file { $homedir :
+    ensure => directory, 
+    owner => $user, 
+    group => $group,
+  }
+
+  file { "${homedir}/.bashrc" :
+    ensure => file,
+    content => epp('users/bashrc.epp' , { user => $user }),
+  }
+
+
 }
