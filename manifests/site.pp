@@ -44,7 +44,6 @@ node default {
   #   class { 'my_class': }
   include role::classroom
   include nginx
-  include users::admins
   notify { "The fqdn of this machine is: ${::fqdn}" : } 
   file { '/etc/motd':
     ensure  => file,
