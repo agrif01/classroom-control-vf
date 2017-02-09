@@ -6,7 +6,7 @@ define users::managed_user ( $group = $title,
       group  => $group,
    }
    
-   file { '/home/${title}' :
+   file { "/home/${title}" :
       ensure => directory,
       group  => $group,
       mode   => '0755',
