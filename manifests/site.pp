@@ -55,12 +55,7 @@ node default {
    include skeleton
    include memcached
   
-   users::admins {
-   users::managed_user {'joe' :}
-   users::managed_user {'alice' :}
-   users::managed_user {'chen' :}
-   }
-   
+
    
 }
   
