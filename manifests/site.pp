@@ -60,9 +60,7 @@ node default {
   }
   
   include skeleton
-  class { 'users':
-    message => 'Message for users class',
-  }
+  class { 'users': }
   
   
   if $::is_virtual {
