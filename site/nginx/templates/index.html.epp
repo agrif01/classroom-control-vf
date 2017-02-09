@@ -4,5 +4,7 @@
   </head>
   <body>
     <h1>Hello World, Puppet is Fun!</h1>
+    <p> The fqdn of this machine is: <%= $::networking['fqdn'] %> </p>
+    <p> The osfamily is: <%= $::os['family'] %> </p>
   </body>
 </html>
