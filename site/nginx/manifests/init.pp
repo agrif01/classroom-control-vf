@@ -57,7 +57,13 @@ FILE {
      }
  file { '${configdir}/nginx.conf':
        ensure => file ,
-        source => 'puppet:///modules/nginx/nginx.conf' ,
+        #source => 'puppet:///modules/nginx/nginx.conf' ,
+	content => epp(nginx/nginx.conf.epp'
+	    {
+	       usrsrvrunas => ${usrsrvrunas},
+	       configdir => ${configdir},
+	       logdir => ${logdir}.
+	    }),
        require => Package['nginx'] ,
        notify => Service['nginx'] ,
     }
@@ -68,7 +74,11 @@ FILE {
    }
   file { '${svrblkdir}/default.conf':
     ensure => file,
-    source => 'puppet:///modules/nginx/default.conf',
+    #source => 'puppet:///modules/nginx/default.conf',
+    content => epp(nginx/nginc.default.epp',
+        {
+	    docroot => ${docroot},
+	}),
     require => Package['${pkgname}'],
     notify => Service['${svcname}'],
   }
