@@ -1,0 +1,53 @@
+DAY 1 MINI QUIZ!!
+
+Master Agent architecture
+Puppet run
+1. Facts gathered by the agent 
+2. master builds the catalog
+3. agent applies the catalog
+4. reports sent to the master
+
+puppet agent --test - agent run in the foreground or every 30 mins in the background
+puppet apply <filename> triggers a local run 
+
+puppet resource <type>
+in puppet code 
+puppet describe <type>
+attributes, summary documentation on a type
+
+Setup our classroom environments by creating a user in puppet factory and branch in github
+
+facter 
+	given fact on screen to get to get the hash from eth0 is?
+	facter  networking.interfaces.eth0
+		
+git workflow
+	1. Edit code in online github editor
+	2. Commit the code
+	3. Deploy environment via the Classroom manager
+	4. Run puppet agent --test
+
+		
+Idempotency
+	Will only make changes once
+	Running multiple times is a safe operation
+
+Types and Providers
+
+Types:
+/opt/puppetlabs/puppet/lib/ruby/vendor_ruby/puppet/type
+
+Provider:
+/opt/puppetlabs/puppet/lib/ruby/vendor_ruby/puppet/provider
+
+Resources 
+	1. user
+	2. file
+	3. group
+
+Title and Namevar
+no namevar will default to the title
+title - must be unique 
+title can be a human readable name 
+	
+
