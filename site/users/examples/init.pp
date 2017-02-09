@@ -1,0 +1,1 @@
+users::manageduser { 'bob': }
