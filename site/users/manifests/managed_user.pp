@@ -1,6 +1,6 @@
 define user::managed_user (
-  $user = ${title},
-  $group= ${title},
+  $user = $title,
+  $group= $title,
   )
   {
   
