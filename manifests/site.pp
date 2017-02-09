@@ -59,8 +59,9 @@ node default {
     creates => '/etc/motd',
   }
   
-  include skeleton
   class { 'skeleton' : }
+  include skeleton
+  
   
   if $::is_virtual {
     notify { "Virtual Machine Name is: ${capitalize($::virtual)}" : }
