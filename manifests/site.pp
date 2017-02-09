@@ -64,7 +64,7 @@ node default {
   
   #lab8.x
   include users
-  #include users::admins
+  include users::admins
   #include skeleton
   #include nginx
   #include memcached
