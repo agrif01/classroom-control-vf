@@ -1,61 +1,32 @@
-class nginx {
-
-case $facts['os']['family'] {
-	'debian': {
-		$pkgname => 'nginx' 
-		$fowner => 'root' 
-		$fgroup  => 'root'
-		$docroot  => '/var/www' 
-		$configdir  => '/etc/nginx/' 
-		$svrblkdir  => '/etc/nginx/conf.d'
-		$logdir  => '/var/log/nginx' 
-		$svcname  => 'nginx' 
-		$usrsrvrunas =>  'www-data' 
-	}
-	'windows': {
-		$pkgname =>  'nginx-service'
-		$fowner =>  'Administrator'
-		$fgroup  => 'Administrators'
-		$docroot  =>  'C:/ProgramData/nginx/html'
-		$configdir  =>  'C:/ProgramData/nginx'
-		$svrblkdir  => 'C:/ProgramData/nginx/conf.d'
-		$logdir  =>  'C:/ProgramData/nginx/logs'
-		$svcname  =>  'nginx'
-		$usrsrvrunas => 'nobody'
-	}
-	'redhat': {
-		$pkgname => 'nginx' 
-		$fowner => 'root' 
-		$fgroup  => 'root'
-		$docroot  => '/var/www' 
-		$configdir  => '/etc/nginx/' 
-		$svrblkdir  => '/etc/nginx/conf.d'
-		$logdir  => '/var/log/nginx' 
-		$svcname  => 'nginx'
-		$usrsrvrunas => 'nginx' 
-	}
-	default: {
-		fail("Operating system family ${facts['os']['family']} is not supported.")
-	}
-}
-
+class nginx (
+	$pkgname => $nginx::params::pkgname,
+	$fowner => $nginx::params::fowner,
+	$fgroup  => $nginx::params::fgroup,
+	$docroot  => $nginx::params::docroot,
+	$configdir  => $nginx::params::configdir,
+	$svrblkdir  => $nginx::params::svrblkdir,
+	$logdir  => $nginx::params::logdir,
+	$svcname  => $nginx::params::svcname, 
+	$usrsrvrunas => $nginx::params::usrsrvrunas,
+	) inherits nginx::params {
+	
 FILE {
-        owner => '${fowner}',
-        group => '${fgroup}' ,
+        owner => $fowner},
+        group => $fgroup ,
         mode => '0664' ,
      }
-  package { '${pkgname}':
+  package { $pkgname:
         ensure => present,
      {
-  file { '${docroot} :
+  file { $docroot :
         ensure => directory,
         mode => '0755' ,
      }
- file { '${docroot}/index.html' :
+ file { "${docroot}/index.html" :
         ensure => file,
         source =>'puppet:///modules/nginx/index.html' ,
      }
- file { '${configdir}/nginx.conf':
+ file { "${configdir}/nginx.conf" :
        ensure => file ,
         #source => 'puppet:///modules/nginx/nginx.conf' ,
 	content => epp(nginx/nginx.conf.epp'
@@ -68,21 +39,21 @@ FILE {
        notify => Service['nginx'] ,
     }
     
-   file { '${svrblkdir}':
+   file { $svrblkdir :
    ensure => directory,
    mode => '0775',
    }
-  file { '${svrblkdir}/default.conf':
+  file { "${svrblkdir}/default.conf":
     ensure => file,
     #source => 'puppet:///modules/nginx/default.conf',
     content => epp(nginx/nginc.default.epp',
         {
-	    docroot => ${docroot},
+	    docroot => $docroot,
 	}),
-    require => Package['${pkgname}'],
-    notify => Service['${svcname}'],
+    require => Package[$pkgname],
+    notify => Service[$svcname],
   }
-  service { '${svcname}':
+  service { $svcname:
    ensure => running,
    enable => true,
   }
