@@ -1,12 +1,12 @@
 define users::managed_user (
-$group = $title,
+$name = $input1, $group = $input2
 ) {
 user { $title:
 ensure => present,
 }
-file { "/home/${title}":
+file { "/home/${input1}":
 ensure => directory,
-owner => $title,
-group => $group,
+owner => $input1,
+group => $input2,
 }
 }
