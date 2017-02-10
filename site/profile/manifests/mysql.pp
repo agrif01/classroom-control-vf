@@ -4,5 +4,5 @@ class profile::mysql {
     root_password           => 'strongerpassword',
   }
 
-
+  include mysql::bindings::php
 }
